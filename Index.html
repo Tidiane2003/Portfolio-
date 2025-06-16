@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Cheikh Tidiane Mbow – Développeur Web Junior à Dakar.">
+  <title>Portfolio – Cheikh Tidiane Mbow</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+      background: rgb(163, 159, 181);
+    }
+    .navbar {
+      background: linear-gradient(90deg, #1f1c2c, #928dab);
+    }
+    .navbar-brand, .nav-link, .nav-link:hover {
+      color: white !important;
+    }
+    header {
+      background: url('img/banner.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 120px 0;
+    }
+    header h1 {
+      animation: fadeInDown 1s ease-in-out;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #343a40;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #dc3545;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+    }
+    .progress-bar {
+      background-color: #dc3545;
+    }
+    .card {
+      transition: transform 0.3s ease-in-out;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background-color: ( #1f1c2c, #928dab);
+      color: white;
+      padding: 40px 0;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      background: #dc3545;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Portfolio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="text-center text-white">
+  <div class="container">
+    <img src="img/3.jpg" class="rounded-circle mb-4 shadow" width="150" alt="Portrait">
+    <h1>Bonjour, moi c'est Cheikh Tidiane</h1>
+    <p class="lead">Développeur Web Junior basé à Dakar</p>
+    <a href="#projects" class="btn btn-danger mt-3">Voir mes projets</a>
+  </div>
+</header>
+
+<!-- À PROPOS -->
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="section-title">À propos</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Étudiant passionné par le développement web, je me spécialise dans la création de sites modernes et efficaces. Je maîtrise les langages front-end comme HTML, CSS, et JavaScript, et je suis en formation continue pour renforcer mes compétences back-end.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="img/Certification web development.jpg" class="img-fluid rounded" alt="À propos">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="skills" class="bg-light py-5">
+  <div class="container">
+    <h2 class="section-title">Compétences</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Langages maîtrisés :</p>
+        <ul class="list-group">
+          <li class="list-group-item">HTML <div class="progress"><div class="progress-bar" style="width: 100%">100%</div></div></li>
+          <li class="list-group-item">CSS <div class="progress"><div class="progress-bar" style="width: 96%">96%</div></div></li>
+          <li class="list-group-item">Bootstrap <div class="progress"><div class="progress-bar" style="width: 80%">80%</div></div></li>
+          <li class="list-group-item">JavaScript <div class="progress"><div class="progress-bar" style="width: 50%">50%</div></div></li>
+          <li class="list-group-item">Php <div class="progress"><div class="progress-bar" style="width: 50%">50%</div></div></li>
+          </ul>
+      </div>
+      <div class="col-md-6">
+        <p>Outils & pratiques :</p>
+        <ul>
+          <li>Git & GitHub</li>
+          <li>Visual Studio Code</li>
+          <li>Responsive Web Design</li>
+          <li>Bonnes pratiques UX/UI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Mes projets</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="img/JeuZéroBug.png" class="card-img-top" alt="Jeu Zéro Bug">
+          <div class="card-body">
+            <h5 class="card-title">Application - JeuZéroBug</h5>
+            <p class="card-text">Application avec HTML/CSS/JavaScript</p>
+            <a href="https://superb-daifuku-92af88.netlify.app/" target="_blank" class="btn btn-outline-danger">Lien</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="img/Jeu de mémoire.png" class="card-img-top" alt="Jeu de Mémoire">
+          <div class="card-body">
+            <h5 class="card-title">Application - JeuDeMémoire</h5>
+            <p class="card-text">Jeu conçu avec HTML/CSS/JavaScript</p>
+            <a href="https://memojeu.netlify.app/" target="_blank" class="btn btn-outline-danger">Lien</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="img/DakarUnivers.png" class="card-img-top" alt="Dakar Univers">
+          <div class="card-body">
+            <h5 class="card-title">Site - DakarUnivers</h5>
+            <p class="card-text">Site web avec HTML/CSS/JavaScript/Bootstrap</p>
+            <a href="https://dakarunivers.netlify.app/" target="_blank" class="btn btn-outline-danger">Lien</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-light py-5">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <form id="contactForm" class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="form-floating mb-3">
+            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+            <label for="email">Adresse e‑mail</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea name="message" class="form-control" id="message" placeholder="Votre message" style="height: 120px" required></textarea>
+            <label for="message">Message</label>
+          </div>
+          <button type="submit" class="btn btn-danger w-100">Envoyer</button>
+          <div id="formResponse" class="mt-3"></div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+<!-- FOOTER -->
+<footer class="text-center">
+  <div class="container">
+    <p class="mb-1">&copy; 2025 Cheikh Tidiane Mbow. Tous droits réservés.</p>
+    <div>
+      <a href="#" class="text-white me-2"><i class="bi bi-github"></i></a>
+      <a href="#" class="text-white me-2"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<script>
+    // main.js – JavaScript pour le portfolio
+
+// Affichage du bouton retour en haut
+const backToTop = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
+  }
+});
+backToTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth‑scroll pour tous les liens internes
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+smoothLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Animation des barres de progression quand la section est visible
+const skillSection = document.querySelector('#skills');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const bars = entry.target.querySelectorAll('.progress-bar');
+      bars.forEach(bar => {
+        const value = bar.dataset.progress;
+        bar.style.width = value + '%';
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+observer.observe(skillSection);
+
+</script>
+</html>
