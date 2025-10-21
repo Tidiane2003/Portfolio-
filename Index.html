@@ -10,72 +10,191 @@
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+ /* 🌙 Palette de couleurs */
+:root {
+  --bleu-nuit: #1b263b;
+  --bleu-clair: #415a77;
+  --blanc-nacre: #9fa297;
+  --gris-clair: #9fa297;
+  --accent: #00b37e; /* vert émeraude raffiné */
+}
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
-      background: rgb(163, 159, 181);
-    }
-    .navbar {
-      background: linear-gradient(90deg, #1f1c2c, #928dab);
-    }
-    .navbar-brand, .nav-link, .nav-link:hover {
-      color: white !important;
-    }
-    header {
-      background: url('img/banner.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 120px 0;
-    }
-    header h1 {
-      animation: fadeInDown 1s ease-in-out;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #343a40;
-      margin-bottom: 40px;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      width: 60px;
-      height: 4px;
-      background: #dc3545;
-      position: absolute;
-      left: 0;
-      bottom: -10px;
-    }
-    .progress-bar {
-      background-color: #dc3545;
-    }
-    .card {
-      transition: transform 0.3s ease-in-out;
-    }
-    .card:hover {
-      transform: scale(1.05);
-    }
-    footer {
-      background-color: ( #1f1c2c, #928dab);
-      color: white;
-      padding: 40px 0;
-    }
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      background: #dc3545;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 50%;
-    }
-  </style>
+
+/* 🧱 Structure générale */
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+  background-color: var(--bleu-nuit);
+  color: var(--blanc-nacre);
+  margin: 0;
+  padding: 0;
+}
+
+/* 🌌 Barre de navigation */
+.navbar {
+  background: linear-gradient(90deg, var(--bleu-nuit), var(--bleu-clair));
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+.navbar-brand, .nav-link {
+  color: var(--blanc-nacre) !important;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.nav-link:hover {
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+/* 🏔️ En-tête */
+header {
+  background: linear-gradient(
+      rgba(13, 27, 42, 0.85),
+      rgba(13, 27, 42, 0.85)
+    ),
+    url('img/banner.jpg') no-repeat center center/cover;
+  text-align: center;
+  padding: 130px 20px;
+}
+header h1 {
+  font-size: 3.2rem;
+  color: var(--blanc-nacre);
+  letter-spacing: 2px;
+  font-weight: 700;
+  animation: fadeInDown 1.2s ease-in-out;
+}
+header p {
+  color: var(--gris-clair);
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📂 Titres de sections */
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--blanc-nacre);
+  text-align: left;
+  margin-bottom: 40px;
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+}
+
+/* 💼 Cartes de projet / service */
+.card {
+  background: #14253d;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(31, 111, 235, 0.3);
+}
+.card-body {
+  color: var(--blanc-nacre);
+}
+
+/* 💪 Section Compétences */
+#competences {
+  background: linear-gradient(180deg, var(--bleu-nuit) 0%, var(--bleu-clair) 100%);
+  padding: 80px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#competences .section-title {
+  color: var(--blanc-nacre);
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 50px;
+}
+
+#competences .skill {
+  margin-bottom: 30px;
+}
+
+#competences .skill-title {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#competences .skill-title span {
+  color: var(--blanc-nacre);
+  font-weight: 500;
+}
+
+/* Barre de progression visible et fluide */
+#competences .progress {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+#competences .progress-bar {
+  background: linear-gradient(90deg, var(--accent), rgba(13, 27, 42, 0.85));
+  box-shadow: 0 0 15px rgba(13, 27, 42, 0.85);
+  height: 10px;
+  border-radius: 12px;
+  transition: width 0.8s ease-in-out;
+}
+
+/* Texte descriptif */
+#competences p {
+  color: var(--blanc-nacre);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: justify;
+  margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 📞 Pied de page */
+footer {
+  background: #0a1525;
+  color: var(--gris-clair);
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ⬆️ Bouton retour haut */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent);
+  color: var(--blanc-nacre);
+  padding: 12px 14px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(31, 111, 235, 0.5);
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+.back-to-top:hover {
+  transform: translateY(-4px);
+}
+
+</style>
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
 
