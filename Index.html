@@ -2,417 +2,398 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Portfolio – Cheikh Tidiane Mbow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio de Cheikh Tidiane Mbow – Développeur Web Junior à Dakar.">
-  <title>Portfolio – Cheikh Tidiane Mbow</title>
+  <meta name="description" content="Portfolio de Cheikh Tidiane Mbow, Développeur Web Full-Stack Junior à Dakar.">
 
-  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-<style>
- /* 🌙 Palette de couleurs */
+
+  <style>
+    /* =========================
+   🎨 VARIABLES
+========================= */
 :root {
-  --bleu-nuit: #1b263b;
-  --bleu-clair: #415a77;
-  --blanc-nacre: #9fa297;
-  --gris-clair: #9fa297;
-  --accent: #00b37e; /* vert émeraude raffiné */
+  --bg-main: #0d1b2a;
+  --bg-card: rgba(20, 37, 61, 0.85);
+  --bg-glass: rgba(255, 255, 255, 0.06);
+
+  --text-main: #e0e1dd;
+  --text-muted: #a9b4c2;
+
+  --accent: #00b37e;
+  --accent-glow: rgba(0, 179, 126, 0.6);
+
+  --radius: 16px;
+  --transition: all 0.35s ease;
 }
 
-
-/* 🧱 Structure générale */
+/* =========================
+   🌌 GLOBAL
+========================= */
 body {
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  scroll-behavior: smooth;
-  background-color: var(--bleu-nuit);
-  color: var(--blanc-nacre);
-  margin: 0;
-  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #1b263b, #0d1b2a);
+  color: var(--text-main);
+  overflow-x: hidden;
 }
 
-/* 🌌 Barre de navigation */
+section {
+  padding: 90px 20px;
+}
+
+a {
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+/* =========================
+   🚀 NAVBAR
+========================= */
 .navbar {
-  background: linear-gradient(90deg, var(--bleu-nuit), var(--bleu-clair));
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  background: rgba(13, 27, 42, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
-.navbar-brand, .nav-link {
-  color: var(--blanc-nacre) !important;
-  font-weight: 500;
-  transition: 0.3s;
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent) !important;
 }
+
+.nav-link {
+  color: var(--text-muted) !important;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
 .nav-link:hover {
   color: var(--accent) !important;
-  text-shadow: 0 0 10px var(--accent);
 }
 
-/* 🏔️ En-tête */
-header {
-  background: linear-gradient(
-      rgba(13, 27, 42, 0.85),
-      rgba(13, 27, 42, 0.85)
-    ),
-    url('img/banner.jpg') no-repeat center center/cover;
-  text-align: center;
-  padding: 130px 20px;
+.nav-link:hover::after {
+  width: 100%;
 }
+
+/* =========================
+   🧑‍💻 HEADER
+========================= */
+header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+header img {
+  border: 4px solid var(--accent);
+  box-shadow: 0 0 30px var(--accent-glow);
+  animation: float 4s ease-in-out infinite;
+}
+
 header h1 {
   font-size: 3.2rem;
-  color: var(--blanc-nacre);
-  letter-spacing: 2px;
   font-weight: 700;
-  animation: fadeInDown 1.2s ease-in-out;
+  margin-top: 20px;
 }
+
 header p {
-  color: var(--gris-clair);
+  color: var(--text-muted);
   font-size: 1.2rem;
-  margin-top: 10px;
-}
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-25px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
-/* 📂 Titres de sections */
+/* Animation flottante */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* =========================
+   📂 TITRES
+========================= */
 .section-title {
-  font-size: 2.4rem;
-  font-weight: 600;
-  color: var(--blanc-nacre);
-  text-align: left;
-  margin-bottom: 40px;
-  border-left: 4px solid var(--accent);
-  padding-left: 12px;
-}
-
-/* 💼 Cartes de projet / service */
-.card {
-  background: #14253d;
-  border: none;
-  border-radius: 12px;
-  transition: all 0.4s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(31, 111, 235, 0.3);
-}
-.card-body {
-  color: var(--blanc-nacre);
-}
-
-/* 💪 Section Compétences */
-#competences {
-  background: linear-gradient(180deg, var(--bleu-nuit) 0%, var(--bleu-clair) 100%);
-  padding: 80px 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-#competences .section-title {
-  color: var(--blanc-nacre);
-  text-align: center;
   font-size: 2.6rem;
+  font-weight: 700;
   margin-bottom: 50px;
+  position: relative;
 }
 
-#competences .skill {
-  margin-bottom: 30px;
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  position: absolute;
+  bottom: -12px;
+  left: 0;
 }
 
-#competences .skill-title {
+/* =========================
+   🧊 CARDS (PROJETS / XP)
+========================= */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(0,179,126,0.15), transparent);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-title {
   color: var(--accent);
   font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-#competences .skill-title span {
-  color: var(--blanc-nacre);
+/* =========================
+   🛠️ COMPÉTENCES
+========================= */
+.skill {
+  margin-bottom: 25px;
+}
+
+.skill span {
+  display: flex;
+  justify-content: space-between;
   font-weight: 500;
 }
 
-/* Barre de progression visible et fluide */
-#competences .progress {
+.progress {
   height: 10px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.15);
   overflow: hidden;
 }
-#competences .progress-bar {
-  background: linear-gradient(90deg, var(--accent), rgba(13, 27, 42, 0.85));
-  box-shadow: 0 0 15px rgba(13, 27, 42, 0.85);
-  height: 10px;
-  border-radius: 12px;
-  transition: width 0.8s ease-in-out;
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--accent), #1f8f6b);
+  box-shadow: 0 0 15px var(--accent-glow);
 }
 
-/* Texte descriptif */
-#competences p {
-  color: var(--blanc-nacre);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  text-align: justify;
-  margin-top: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+/* =========================
+   📞 FORMULAIRE
+========================= */
+form input,
+form textarea {
+  background: var(--bg-glass);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-main);
+  border-radius: var(--radius);
 }
 
-/* 📞 Pied de page */
+form input:focus,
+form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+button {
+  background: linear-gradient(135deg, var(--accent), #1f8f6b);
+  border: none;
+  padding: 14px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  color: #fff;
+  transition: var(--transition);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+/* =========================
+   🔚 FOOTER
+========================= */
 footer {
-  background: #0a1525;
-  color: var(--gris-clair);
-  padding: 40px 0;
-  text-align: center;
-  font-size: 0.95rem;
+  background: #08101c;
+  color: var(--text-muted);
 }
+
 footer a {
   color: var(--accent);
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
 }
 
-/* ⬆️ Bouton retour haut */
+/* =========================
+   ⬆️ BACK TO TOP
+========================= */
 .back-to-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 25px;
+  right: 25px;
   background: var(--accent);
-  color: var(--blanc-nacre);
-  padding: 12px 14px;
+  color: #fff;
+  padding: 14px;
   border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(31, 111, 235, 0.5);
-  transition: transform 0.3s ease;
-  z-index: 999;
-}
-.back-to-top:hover {
-  transform: translateY(-4px);
+  box-shadow: 0 0 25px var(--accent-glow);
+  transition: var(--transition);
 }
 
-</style>
+.back-to-top:hover {
+  transform: scale(1.1);
+}
+
+section {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer a {
+  position: relative;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+footer a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+  </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+
+<body>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Portfolio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <a class="navbar-brand text-white" href="#">CTM</a>
+    <div class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#about">À propos</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#skills">Compétences</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#experience">Expérience</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#projects">Projets</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- HEADER -->
-<header class="text-center text-white">
-  <div class="container">
-    <img src="img/3.jpg" class="rounded-circle mb-4 shadow" width="150" alt="Portrait">
-    <h1>Bonjour, moi c'est Cheikh Tidiane</h1>
-    <p class="lead">Développeur Web Junior basé à Dakar</p>
-    <a href="#projects" class="btn btn-danger mt-3">Voir mes projets</a>
-  </div>
+<header class="text-center py-5 mt-5">
+  <img src="img/3.jpg" class="rounded-circle mb-3" width="150">
+  <h1>Cheikh Tidiane Mbow</h1>
+  <p class="lead">Développeur Web Full-Stack Junior • Dakar</p>
 </header>
 
 <!-- À PROPOS -->
 <section id="about" class="py-5">
   <div class="container">
     <h2 class="section-title">À propos</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <p>Étudiant passionné par le développement web, je me spécialise dans la création de sites modernes, performants et adaptés aux besoins des utilisateurs. Je maîtrise les langages front-end tels que HTML, CSS et JavaScript, ainsi que des frameworks et bibliothèques comme React.js. En back-end, je développe mes compétences avec MongoDB et d’autres technologies, tout en exploitant des outils de conception et de gestion comme WordPress pour offrir des solutions complètes et professionnelles.</p>
-      </div>
-      <div class="col-md-6">
-        <img src="img/Certification web development.jpg" class="img-fluid rounded" alt="À propos">
-      </div>
-    </div>
+    <p>
+      Développeur Web Full-Stack Junior, passionné par le code propre et les solutions web intuitives.
+      Formé à Gomycode Dakar et à MIT University, je conçois des sites modernes,
+      performants et centrés sur l’utilisateur.
+    </p>
   </div>
 </section>
 
 <!-- COMPÉTENCES -->
-<section id="skills" class="bg-light py-5">
+<section id="skills" class="py-5 bg-dark">
   <div class="container">
     <h2 class="section-title">Compétences</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <p>Langages maîtrisés :</p>
-          <li class="list-group-item">HTML <div class="progress"><div class="progress-bar" style="width: 100%">100%</div></div></li>
-          <li class="list-group-item">CSS <div class="progress"><div class="progress-bar" style="width: 96%">96%</div></div></li>
-          <li class="list-group-item">Bootstrap <div class="progress"><div class="progress-bar" style="width: 80%">80%</div></div></li>
-          <li class="list-group-item">JavaScript <div class="progress"><div class="progress-bar" style="width: 75%">75%</div></div></li>
-          <li class="list-group-item">Php <div class="progress"><div class="progress-bar" style="width: 75%">75%</div></div></li>
-          <li class="list-group-item">Mongo DB <div class="progress"><div class="progress-bar" style="width: 50%">50%</div></div></li>
-          <li class="list-group-item">Angular<div class="progress"><div class="progress-bar" style="width: 50%">50%</div></div></li>
-          <li class="list-group-item">React.js <div class="progress"><div class="progress-bar" style="width: 50%">50%</div></div></li>
-          </ul>
-      </div>
-      <div class="col-md-6">
-        <p>Outils & pratiques :</p>
-        <ul>
-          <li>Gitlab & GitHub</li>
-          <li>Visual Studio Code</li>
-          <li>Responsive Web Design</li>
-          <li>Bonnes pratiques UX/UI</li>
-          <li>Wordpress</li>
-        </ul>
-      </div>
-    </div>
+
+    <ul>
+      <li><strong>Langages :</strong> HTML, CSS, JavaScript, PHP, React.js, Angular, Vue.js, Node.js, MongoDB</li>
+      <li><strong>Outils :</strong> GitHub, GitLab, VS Code, WordPress</li>
+      <li><strong>Design :</strong> Photoshop, Illustrator, Premiere Pro, CapCut</li>
+      <li><strong>Méthodes :</strong> Responsive Design, UX/UI</li>
+    </ul>
+  </div>
+</section>
+
+<!-- EXPÉRIENCE -->
+<section id="experience" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Expérience professionnelle</h2>
+    <p><strong>Développeur Web Junior – Projets personnels</strong> (Mai 2025 – Juin 2025)</p>
+    <ul>
+      <li>Développement d’un site e-commerce avec panier et base de données MySQL</li>
+      <li>Création de jeux web : JeuZéroBug & MémoJeu</li>
+      <li>Développement de sites vitrines responsives</li>
+    </ul>
   </div>
 </section>
 
 <!-- PROJETS -->
-<section id="projects" class="py-5">
+<section id="projects" class="py-5 bg-dark">
   <div class="container">
-    <h2 class="section-title">Mes projets</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/JeuZéroBug.png" class="card-img-top" alt="Jeu Zéro Bug">
-          <div class="card-body">
-            <h5 class="card-title">Application - JeuZéroBug</h5>
-            <p class="card-text">Application avec HTML/CSS/JavaScript</p>
-            <a href="https://superb-daifuku-92af88.netlify.app/" target="_blank" class="btn btn-outline-danger">Voir</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/Jeu de mémoire.png" class="card-img-top" alt="Jeu de Mémoire">
-          <div class="card-body">
-            <h5 class="card-title">Application - JeuDeMémoire</h5>
-            <p class="card-text">Jeu conçu avec HTML/CSS/JavaScript</p>
-            <a href="https://memojeu.netlify.app/" target="_blank" class="btn btn-outline-danger">Voir</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/img ScrollStory.png" class="card-img-top" alt="ScrollStory">
-          <div class="card-body">
-            <h5 class="card-title">Site - ScrollStory</h5>
-            <p class="card-text">Site vitrine codé avec HTML/CSS/JavaScript/PHP</p>
-            <a href="https://scrollstore.netlify.app/" target="_blank" class="btn btn-outline-danger">Voir</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/img lejournald'unsilence.png" class="card-img-top" alt="Le journal d'un silence">
-          <div class="card-body">
-            <h5 class="card-title">Site - Le journal d'un silences</h5>
-            <p class="card-text">Site web construit avec HTML/CSS/JavaScript/</p>
-            <a href="https://lejournaldunsilence.netlify.app/" target="_blank" class="btn btn-outline-danger">Voir</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/DakarUnivers.png" class="card-img-top" alt="Dakar Univers">
-          <div class="card-body">
-            <h5 class="card-title">Site - DakarUnivers</h5>
-            <p class="card-text">Site web avec HTML/CSS/JavaScript/Bootstrap/PHP</p>
-            <a href="https://dakarunivers.netlify.app/" target="_blank" class="btn btn-outline-danger">Voir</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h2 class="section-title">Projets</h2>
+    <p>Jeux web, sites vitrines et applications interactives disponibles sur Netlify.</p>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="bg-light py-5">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <form id="contactForm" class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="form-floating mb-3">
-            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
-            <label for="email">Adresse e‑mail</label>
-          </div>
-          <div class="form-floating mb-3">
-            <textarea name="message" class="form-control" id="message" placeholder="Votre message" style="height: 120px" required></textarea>
-            <label for="message">Message</label>
-          </div>
-          <button type="submit" class="btn btn-danger w-100">Envoyer</button>
-          <div id="formResponse" class="mt-3"></div>
-        </div>
-      </form>
-    </div>
-  </section>
-
-<!-- FOOTER -->
-<footer class="text-center">
+<section id="contact" class="py-5">
   <div class="container">
-    <p class="mb-1">&copy; 2025 Cheikh Tidiane Mbow. Tous droits réservés.</p>
-    <div>
-      <a href="#" class="text-white me-2"><i class="bi bi-github"></i></a>
-      <a href="#" class="text-white me-2"><i class="bi bi-linkedin"></i></a>
-    </div>
+    <h2 class="section-title">Contact</h2>
+    <form action="contact.php" method="POST" class="col-md-6 mx-auto">
+      <input type="email" name="email" class="form-control mb-3" placeholder="Votre email" required>
+      <textarea name="message" class="form-control mb-3" placeholder="Votre message" required></textarea>
+      <button class="btn btn-success w-100">Envoyer</button>
+    </form>
   </div>
+</section>
+
+<footer>
+  <p>© 2025 Cheikh Tidiane Mbow</p>
+  <p>
+    <a href="https://www.linkedin.com/in/cheikh-tidiane-mbow-20066034b" class="text-success">LinkedIn</a>
+  </p>
 </footer>
 
-<!-- BACK TO TOP -->
-<a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<script>
-    // main.js – JavaScript pour le portfolio
-
-// Affichage du bouton retour en haut
-const backToTop = document.querySelector('.back-to-top');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.classList.add('show');
-  } else {
-    backToTop.classList.remove('show');
-  }
-});
-backToTop.addEventListener('click', (e) => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Smooth‑scroll pour tous les liens internes
-const smoothLinks = document.querySelectorAll('a[href^="#"]');
-smoothLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    const href = link.getAttribute('href');
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
-
-// Animation des barres de progression quand la section est visible
-const skillSection = document.querySelector('#skills');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const bars = entry.target.querySelectorAll('.progress-bar');
-      bars.forEach(bar => {
-        const value = bar.dataset.progress;
-        bar.style.width = value + '%';
-      });
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-observer.observe(skillSection);
-
-</script>
 </html>
